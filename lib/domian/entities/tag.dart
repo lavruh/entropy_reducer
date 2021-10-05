@@ -31,8 +31,8 @@ class Tag {
     };
   }
 
-  Tag.fromMap(Map<String, dynamic> map) {
-    Tag(
+  static fromMap(Map<String, dynamic> map) {
+    return Tag(
       id: map["id"],
       name: map["name"],
       color: map["color"] != null ? Color(map["color"]) : Colors.white,
