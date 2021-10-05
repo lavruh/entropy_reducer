@@ -15,6 +15,8 @@ class Tag {
     _color = color ?? Colors.white;
   }
 
+  String get id => _id;
+
   String get name => _name;
 
   set name(String newName) => _name = newName;

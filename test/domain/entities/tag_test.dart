@@ -16,12 +16,13 @@ main() {
 
   test('tag from map', () {
     Map<String, dynamic> inp = {
+      "id": "sfasfasfd",
       "name": "tag1",
       "color": Colors.green.value
     };
 
     Tag r = Tag.fromMap(inp);
-
+    expect(r.id, inp["id"]);
     expect(r.name, inp["name"]);
     expect(r.color.value, inp["color"]);
   });
