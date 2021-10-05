@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Tag {
-  late final String id;
+  late final String _id;
   late String _name;
   late Color _color;
 
@@ -10,7 +10,7 @@ class Tag {
     String? name,
     Color? color,
   }) {
-    id = id ?? UniqueKey().toString();
+    _id = id ?? UniqueKey().toString();
     _name = name ?? "";
     _color = color ?? Colors.white;
   }
@@ -25,9 +25,9 @@ class Tag {
 
   Map<String, dynamic> toMap() {
     return {
-      "id": id,
-      "name": name,
-      "color": color.value
+      "id": _id,
+      "name": _name,
+      "color": _color.value
     };
   }
 
