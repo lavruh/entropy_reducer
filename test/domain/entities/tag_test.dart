@@ -13,4 +13,16 @@ main() {
     expect(r["name"], contains(t.name));
     expect(r["color"], t.color.value);
   });
+
+  test('tag from map', () {
+    Map<String, dynamic> inp = {
+      "name": "tag1",
+      "color": Colors.green.value
+    };
+
+    Tag r = Tag.fromMap(inp);
+
+    expect(r.name, inp["name"]);
+    expect(r.color.value, inp["color"]);
+  });
 }
