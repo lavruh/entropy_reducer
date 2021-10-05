@@ -22,4 +22,20 @@ class Tag {
   Color get color => _color;
 
   set color(Color val) => _color = val;
+
+  Map<String, dynamic> toMap() {
+    return {
+      "id": id,
+      "name": name,
+      "color": color.value
+    };
+  }
+
+  Tag.fromMap(Map<String, dynamic> map) {
+    Tag(
+      id: map["id"],
+      name: map["name"],
+      color: map["color"] != null ? Color(map["color"]) : Colors.white,
+    );
+  }
 }
