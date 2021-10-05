@@ -11,6 +11,6 @@ main() {
 
     Map r = t.toMap();
     expect(r["name"], contains(t.name));
-    expect(r["color"], contains(t.color));
+    expect(r["color"], t.color.value);
   });
 }
