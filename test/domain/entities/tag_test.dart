@@ -10,7 +10,7 @@ main() {
     );
 
     Map r = t.toMap();
-    expect(r, contains("newTag"));
-    expect(r, contains(Colors.black.value));
+    expect(r["name"], contains(t.name));
+    expect(r["color"], contains(t.color));
   });
 }
