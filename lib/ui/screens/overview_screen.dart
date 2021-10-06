@@ -1,45 +1,24 @@
+import 'package:entropy_reducer/domian/states/overview_state.dart';
+import 'package:entropy_reducer/ui/widgets/entry_widget.dart';
 import 'package:flutter/material.dart';
 
-class OverviewScreen extends StatefulWidget {
-  const OverviewScreen({Key? key, required this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  State<OverviewScreen> createState() => _OverviewScreenState();
-}
-
-class _OverviewScreenState extends State<OverviewScreen> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+class OverviewScreen extends StatelessWidget {
+  OverviewScreen(OverviewState state, {Key? key})
+      : _state = state,
+        super(key: key);
+  OverviewState _state;
 
   @override
   Widget build(BuildContext context) {
+    _state.getEntries([]);
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+        child: ListView(
+          children: _state.entries.map((e) => EntryWidget(e)).toList(),
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () {},
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),

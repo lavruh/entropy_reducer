@@ -1,7 +1,10 @@
 import 'package:entropy_reducer/ui/screens/overview_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:entropy_reducer/di.dart';
 
 void main() {
+  di();
   runApp(const EntropyReducerApp());
 }
 
@@ -15,7 +18,7 @@ class EntropyReducerApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const OverviewScreen(title: 'Flutter Demo Home Page'),
+      home: Get.find<OverviewScreen>(),
     );
   }
 }

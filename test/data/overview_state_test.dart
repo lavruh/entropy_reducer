@@ -4,7 +4,7 @@ import 'package:entropy_reducer/domian/entities/info_entry.dart';
 import 'package:entropy_reducer/domian/states/overview_state.dart';
 import 'package:test/test.dart';
 
-import 'entries_repo_mock.dart';
+import '../../lib/mocks/entries_repo_mock.dart';
 
 main() {
   EntriesRepoMock repo = EntriesRepoMock();
@@ -20,6 +20,24 @@ main() {
     List<Entry> r = state.entries;
 
     expect(r.length, 10);
+  });
+
+  test('overview state save', () {
+    Entry e = InfoEntry(text: "Sometext");
+    state.getEntries([
+      ["text", "", "text_4"]
+    ]);
+    expect(state.entries.length, 1);
+    Entry exist = state.entries.first;
+    exist.text = "UPDATE";
+    state.entries.add(e);
+
+    state.saveEntries();
+
+    state.getEntries([]);
+    expect(state.entries.length, 11);
+    expect(state.entries, contains(e));
+    expect(state.entries, contains(exist));
   });
 
   test("repo add", () {

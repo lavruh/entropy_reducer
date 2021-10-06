@@ -54,6 +54,8 @@ class EntriesRepoMock implements EntriesRepository {
             if (e.text.contains(req[2])) {
               tmp.add(e);
             }
+          } else {
+            throw Exception("Search by this field is not realised");
           }
         }
         result = tmp;

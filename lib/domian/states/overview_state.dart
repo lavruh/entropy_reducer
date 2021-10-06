@@ -11,4 +11,10 @@ class OverviewState {
   getEntries(List<List> request) {
     entries = _repo.getEntries(request).obs();
   }
+
+  saveEntries() {
+    for (Entry e in entries) {
+      _repo.addOrUpdateEntry(e);
+    }
+  }
 }
