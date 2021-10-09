@@ -1,25 +1,43 @@
 import 'package:flutter/material.dart';
 
 class Tag {
-  late final String id;
+  late final String _id;
   late String _name;
-  late Color _color;
+  late int _color;
 
   Tag({
     String? id,
     String? name,
-    Color? color,
+    int? color,
   }) {
-    id = id ?? UniqueKey().toString();
+    _id = id ?? UniqueKey().toString();
     _name = name ?? "";
-    _color = color ?? Colors.white;
+    _color = color ?? 0xFFFFFFFF;
   }
+
+  String get id => _id;
 
   String get name => _name;
 
   set name(String newName) => _name = newName;
 
-  Color get color => _color;
+  int get color => _color;
 
-  set color(Color val) => _color = val;
+  set color(int val) => _color = val;
+
+  Map<String, dynamic> toMap() {
+    return {
+      "id": _id,
+      "name": _name,
+      "color": _color,
+    };
+  }
+
+  static Tag fromMap(Map<String, dynamic> map) {
+    return Tag(
+      id: map["id"],
+      name: map["name"],
+      color: map["color"].toInt,
+    );
+  }
 }
