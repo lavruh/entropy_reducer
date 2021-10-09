@@ -1,8 +1,8 @@
 import 'package:test/test.dart';
 import 'package:entropy_reducer/data/repos/tags_repo.dart';
 import 'package:entropy_reducer/mocks/tags_repo_mock.dart';
-import 'package:entropy_reducer/domain/states/tags_state.dart';
 import 'package:entropy_reducer/domian/entities/tag.dart';
+import 'package:entropy_reducer/domian/states/tags_state.dart';
 
 main() {
   TagsRepository repo = TagsRepoMock();
