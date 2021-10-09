@@ -12,11 +12,11 @@ main() {
     expect(r.length, 5);
   });
 
-  test("save tag", () {
+  test("add tag", () {
     Tag t = Tag(name: "someName", color: 2);
 
     state.addOrUpdateTag(t);
 
-    expect(repo, contains(t));
+    expect(state.availableTags, contains(t));
   });
 }
