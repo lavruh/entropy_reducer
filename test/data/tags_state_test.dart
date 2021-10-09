@@ -17,8 +17,8 @@ main() {
     state.availableTags.putIfAbsent(t.id, () => t);
 
     state.saveTags();
-    var r = state.getAvailableTags();
-    expect(r, contains(t));
+    state.getAvailableTags();
+    expect(state.availableTags, contains(t));
   });
 
   test("add tag", () {
