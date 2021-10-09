@@ -18,7 +18,9 @@ main() {
 
     state.saveTags();
     state.getAvailableTags();
-    expect(state.availableTags, contains(t));
+    Map<String, Tag> c = Map();
+    c.putIfAbsent(t.id, () => t);
+    expect(state.availableTags, contains(c));
   });
 
   test("add tag", () {
