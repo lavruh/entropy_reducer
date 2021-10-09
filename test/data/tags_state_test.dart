@@ -12,6 +12,15 @@ main() {
     expect(r.length, 5);
   });
 
+  test("save tags to repo", () {
+    Tag t = Tag(name: "someName", color: 2);
+    state.availableTags.putIfAbsent(t.id, () => t);
+
+    state.saveTags();
+    var r = state.getAvailableTags();
+    expect(r, contains(t));
+  });
+
   test("add tag", () {
     Tag t = Tag(name: "someName", color: 2);
 
