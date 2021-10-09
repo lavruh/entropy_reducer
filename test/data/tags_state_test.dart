@@ -9,8 +9,14 @@ main() {
   TagsState state = TagsState(repo);
   test("get available tags", () {
     Map<String, Tag> r = repo.getAllTags();
-    expect(r.length, 6);
+    expect(r.length, 5);
   });
 
-  test("save tag", () {});
+  test("save tag", () {
+    Tag t = Tag(name: "someName", color: 2);
+
+    state.addOrUpdateTag(t);
+
+    expect(repo, contains(t));
+  });
 }
