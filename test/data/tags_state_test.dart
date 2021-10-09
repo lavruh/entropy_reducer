@@ -26,6 +26,11 @@ main() {
 
     state.addOrUpdateTag(t);
 
-    expect(state.availableTags, contains(t));
+    expect(
+        state.availableTags,
+        contains({
+          t.id,
+          t
+        }));
   });
 }
