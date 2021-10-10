@@ -25,9 +25,16 @@ main() {
 
   test("add tag", () {
     Tag t = Tag(name: "someName", color: 2);
-
     state.addOrUpdateTag(t);
-
     expect(state.availableTags.containsKey(t.id), true);
+  });
+
+  test("update tag", () {
+    Map<String, Tag> c = repo.getAllTags();
+    Tag t = c.values.first;
+    t.name = "newName";
+    state.addOrUpdateTag(t);
+    expect(state.availableTags.containsKey(t.id), true);
+    expect(state.availableTags.containsValue(t), true);
   });
 }
