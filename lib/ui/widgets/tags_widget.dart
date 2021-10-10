@@ -9,11 +9,12 @@ class TagsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget? content = Obx(() => Wrap(
-          children: this.state.availableTags.values.map((tag) {
-            return Text(tag.id);
-          }).toList(),
-        ));
+    Widget? content = GetBuilder<TagsState>(
+        builder: (_) => Wrap(
+              children: _.availableTags.values.map((tag) {
+                return Text(tag.id);
+              }).toList(),
+            ));
     return content ?? Container();
   }
 }
