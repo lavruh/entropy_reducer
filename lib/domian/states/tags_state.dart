@@ -18,7 +18,12 @@ class TagsState extends GetxController {
     repo.saveTags(availableTags);
   }
 
-  addOrUpdateTag(Tag t) {}
+  addOrUpdateTag(Tag t) {
+    Tag? existing = availableTags.putIfAbsent(t.id, () => t);
+    if (null != existing) {
+      availableTags[existing.id] = t;
+    }
+  }
 
   removeTag(Tag t) {}
 }
