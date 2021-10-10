@@ -15,11 +15,8 @@ main() {
   test("save tags to repo", () {
     Tag t = Tag(name: "someName", color: 2);
     state.availableTags.putIfAbsent(t.id, () => t);
-
     state.saveTags();
     state.getAvailableTags();
-    Map<String, Tag> c = Map();
-    c.putIfAbsent(t.id, () => t);
     expect(state.availableTags.containsKey(t.id), true);
   });
 
