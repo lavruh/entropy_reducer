@@ -15,6 +15,9 @@ class TagsWidget extends StatelessWidget {
                 return Text(tag.id);
               }).toList(),
             ));
-    return content ?? Container();
+    if (content != null) {
+      return content;
+    }
+    return Container();
   }
 }
