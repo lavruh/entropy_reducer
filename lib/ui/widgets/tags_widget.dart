@@ -10,8 +10,8 @@ class TagsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget? content = GetBuilder<TagsState>(
-        builder: (_) => Wrap(
-              children: _.availableTags.values.map((tag) {
+        builder: (state) => Wrap(
+              children: state.availableTags.values.map((tag) {
                 return Text(tag.id);
               }).toList(),
             ));

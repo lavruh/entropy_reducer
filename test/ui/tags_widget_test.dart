@@ -7,8 +7,11 @@ import 'package:entropy_reducer/domian/states/tags_state.dart';
 import 'package:entropy_reducer/ui/widgets/tags_widget.dart';
 
 import 'package:entropy_reducer/main.dart';
+import 'package:entropy_reducer/di.dart';
 
 void main() {
+  di();
+
   testWidgets('tags widget create test', (WidgetTester tester) async {
     TagsRepository repo = TagsRepoMock();
     TagsState state = TagsState(repo);
