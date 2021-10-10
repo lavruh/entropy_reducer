@@ -20,7 +20,7 @@ main() {
     state.getAvailableTags();
     Map<String, Tag> c = Map();
     c.putIfAbsent(t.id, () => t);
-    expect(state.availableTags, contains(c));
+    expect(state.availableTags, contains(t));
   });
 
   test("add tag", () {
