@@ -28,6 +28,6 @@ main() {
 
     state.addOrUpdateTag(t);
 
-    expect(state.availableTags, containsValue(t));
+    expect(state.availableTags.containsKey(t.id), true);
   });
 }
