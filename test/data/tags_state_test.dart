@@ -28,11 +28,6 @@ main() {
 
     state.addOrUpdateTag(t);
 
-    expect(
-        state.availableTags,
-        contains({
-          t.id,
-          t
-        } as Map<String, Tag>));
+    expect(state.availableTags, containsValue(t));
   });
 }
