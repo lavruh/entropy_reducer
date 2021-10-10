@@ -33,6 +33,6 @@ main() {
         contains({
           t.id,
           t
-        }));
+        } as Map));
   });
 }
