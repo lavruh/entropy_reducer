@@ -11,6 +11,7 @@ class TagsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget? content = GetBuilder<TagsState>(
         builder: (state) => Wrap(
+              textDirection: TextDirection.ltr,
               children: state.availableTags.values.map((tag) {
                 return Text(tag.id);
               }).toList(),
