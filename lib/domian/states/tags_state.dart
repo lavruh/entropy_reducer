@@ -4,12 +4,18 @@ import 'package:entropy_reducer/domian/entities/tag.dart';
 
 class TagsState extends GetxController {
   TagsRepository repo;
-  final availableTags = <String, Tag>{}.obs();
-  final filteredTags = <String, Tag>{}.obs();
+  final availableTags = <String, Tag>{}.obs;
+  final filteredTags = <String, Tag>{}.obs;
+  final tagsLen = 0.obs;
   TagsState(this.repo);
 
   getAvailableTags() {
     availableTags.addAll(repo.getAllTags());
+    tagsLen.value = availableTags.length;
+  }
+
+  increement() {
+    tagsLen.value++;
   }
 
   filterTags(List filter) {}
