@@ -19,7 +19,7 @@ void main() {
 
     state.getAvailableTags();
 
-    await tester.pumpWidget(TagsWidget(state));
+    await tester.pumpWidget(TagsWidget());
 
     expect(find.text(t.id), findsOneWidget);
 
