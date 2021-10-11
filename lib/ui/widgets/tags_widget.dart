@@ -17,8 +17,13 @@ class TagsWidget extends StatelessWidget {
               }).toList(),
             ));
     if (content != null) {
-      return content;
+      return Column(
+        children: [
+          Text("Content"),
+          content,
+        ],
+      );
     }
-    return Container();
+    return Text("Content null");
   }
 }
