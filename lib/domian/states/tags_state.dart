@@ -16,6 +16,7 @@ class TagsState extends GetxController {
 
   increement() {
     tagsLen.value++;
+    print(tagsLen.value);
   }
 
   filterTags(List filter) {}
