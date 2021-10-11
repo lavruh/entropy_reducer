@@ -17,6 +17,8 @@ void main() {
     TagsState state = TagsState(repo);
     Tag t = repo.getAllTags().values.last;
 
+    state.getAvailableTags();
+
     await tester.pumpWidget(TagsWidget(state));
 
     expect(find.text(t.id), findsOneWidget);
