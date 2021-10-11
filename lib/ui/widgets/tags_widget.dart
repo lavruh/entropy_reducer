@@ -19,7 +19,7 @@ class TagsWidget extends StatelessWidget {
     if (content != null) {
       return Column(
         children: [
-          Text("Content"),
+          Obx(() => Text("Content ${state.availableTags.length}")),
           content,
         ],
       );
