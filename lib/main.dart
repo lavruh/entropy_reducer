@@ -1,4 +1,5 @@
 import 'package:entropy_reducer/ui/screens/overview_screen.dart';
+import 'package:entropy_reducer/ui/screens/tags_editor_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:entropy_reducer/di.dart';
@@ -18,7 +19,7 @@ class EntropyReducerApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Get.find<OverviewScreen>(),
+      home: Get.find<TagsEditor>(),
     );
   }
 }
