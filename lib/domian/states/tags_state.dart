@@ -17,6 +17,7 @@ class TagsState extends GetxController {
   increement() {
     tagsLen.value++;
     print(tagsLen.value);
+      update();
   }
 
   filterTags(List filter) {}
@@ -30,6 +31,7 @@ class TagsState extends GetxController {
     if (null != existing) {
       availableTags[existing.id] = t;
     }
+      update();
   }
 
   removeTag(Tag t) {}
