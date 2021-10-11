@@ -6,11 +6,12 @@ class TagsEditor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      children: [
-        Text("test"),
-        TagsWidget(Get.find()),
-      ],
-    ));
+      body: Column(
+        children: [
+          Text("test"),
+          TagsWidget(Get.find()),
+        ],
+      ),
+    );
   }
 }

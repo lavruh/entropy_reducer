@@ -22,6 +22,12 @@ class TagsWidget extends StatelessWidget {
         children: [
           Obx(() => Text("Content ${state.availableTags.length}")),
           content,
+          ElevatedButton(
+            child: Text("Increement"),
+            onPressed: () {
+              state.increement();
+            },
+          ),
         ],
       );
     }
