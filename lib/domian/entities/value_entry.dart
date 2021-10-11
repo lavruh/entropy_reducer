@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:entropy_reducer/domian/entities/entry.dart';
 
 class ValueEntry extends Entry {
