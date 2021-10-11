@@ -9,6 +9,7 @@ class TagsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    state.getAvailableTags();
     Widget? content = GetBuilder<TagsState>(
         builder: (state) => Wrap(
               textDirection: TextDirection.ltr,
