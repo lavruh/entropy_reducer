@@ -3,9 +3,9 @@ import 'package:entropy_reducer/domian/states/tags_state.dart';
 import 'package:get/get.dart';
 
 class TagsWidget extends StatelessWidget {
-  final TagsState state;
+  final TagsState state = Get.put<TagsState>(TagsState(Get.find()), permanent: true);
 
-  TagsWidget(this.state);
+  TagsWidget();
 
   @override
   Widget build(BuildContext context) {
