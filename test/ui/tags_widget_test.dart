@@ -5,7 +5,7 @@ import 'package:entropy_reducer/mocks/tags_repo_mock.dart';
 import 'package:entropy_reducer/domian/entities/tag.dart';
 import 'package:entropy_reducer/domian/states/tags_state.dart';
 import 'package:entropy_reducer/ui/widgets/tags_widget.dart';
-
+import 'package:get/get.dart';
 import 'package:entropy_reducer/main.dart';
 import 'package:entropy_reducer/di.dart';
 
