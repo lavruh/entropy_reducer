@@ -24,6 +24,7 @@ class TagsWidget extends StatelessWidget {
                     child: Text("Increement"),
                     onPressed: () {
                       _.increement();
+                      _.update();
                     },
                   ),
                 ),
