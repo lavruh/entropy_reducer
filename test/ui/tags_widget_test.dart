@@ -20,6 +20,7 @@ void main() {
     expect(state.availableTags, isNotEmpty);
     TagsWidget w = TagsWidget();
     await tester.pumpWidget(testableWidget(child: w));
+    await tester.pump();
     expect(find.textContaining("Content"), findsOneWidget);
     expect(find.textContaining(t.id), findsOneWidget);
 
