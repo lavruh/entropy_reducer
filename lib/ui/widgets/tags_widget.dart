@@ -12,7 +12,7 @@ class TagsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     state.getAvailableTags();
-    return GetBuilder<TagsState>(
+    return GetX<TagsState>(
         builder: (_) => Column(
               children: [
                 Text("Content ${_.availableTags.length}"),
