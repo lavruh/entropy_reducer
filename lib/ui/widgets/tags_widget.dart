@@ -12,28 +12,25 @@ class TagsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     state.getAvailableTags();
-    Widget? content = GetX<TagsState>(
-init: Get.find<TagsState>(),
-        builder: (state) => Wrap(
-              textDirection: TextDirection.ltr,
-              children: state.availableTags.values.map((tag) {
-                return Text(tag.id);
-              }).toList(),
-            ));
-    if (content != null) {
-      return Column(
-        children: [
-          Obx(() => Text("Content ${state.availableTags.length}")),
-          content,
-          ElevatedButton(
-            child: Text("Increement"),
-            onPressed: () {
-              state.increement();
-            },
-          ),
-        ],
-      );
-    }
-    return Text("Content null");
+    return GetX<TagsState>(
+            init: Get.find<TagsState>(),
+            builder: (state) => Column(
+                  children: [
+                    Text("Content ${state.availableTags.length}"),
+                    Wrap(
+                      textDirection: TextDirection.ltr,
+                      children: state.availableTags.values.map((tag) {
+                        return Text(tag.id);
+                      }).toList(),
+                    ),
+                    ElevatedButton(
+                      child: Text("Increement"),
+                      onPressed: () {
+                        state.increement();
+                      },
+                    ),
+                  ],
+                )) ??
+        Text("Content null");
   }
 }
