@@ -19,7 +19,7 @@ class TagsState extends GetxController {
     Tag t = Tag(name: "new");
     availableTags.value.putIfAbsent(t.id, () => t);
     tagsLen.value = availableTags.value.length;
-    print(tagsLen.value);
+    print("${tagsLen.value} - $t");
     update();
   }
 
