@@ -8,27 +8,26 @@ class TagsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     state.getAvailableTags();
-    return GetX<TagsState>(
-        builder: (_) => Column(
-              children: [
-                Text("Content ${_.availableTags.length}"),
-                Wrap(
-                  textDirection: TextDirection.ltr,
-                  children: _.availableTags.values.map((tag) {
-                    return Text(tag.id);
-                  }).toList(),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: ElevatedButton(
-                    child: Text("Increement"),
-                    onPressed: () {
-                      _.increement();
-                      _.update();
-                    },
-                  ),
-                ),
-              ],
-            ));
+    return Obx(() => Column(
+          children: [
+            Text("Content ${state.availableTags.length}"),
+            Wrap(
+              textDirection: TextDirection.ltr,
+              children: state.availableTags.values.map((tag) {
+                return Text(tag.id);
+              }).toList(),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: ElevatedButton(
+                child: Text("Increement"),
+                onPressed: () {
+                  state.increement();
+                  state.update();
+                },
+              ),
+            ),
+          ],
+        ));
   }
 }
