@@ -14,12 +14,12 @@ class TagsWidget extends StatelessWidget {
     state.getAvailableTags();
     return GetX<TagsState>(
         init: Get.find<TagsState>(),
-        builder: (state) => Column(
+        builder: (_) => Column(
               children: [
-                Text("Content ${state.availableTags.length}"),
+                Text("Content ${_.availableTags.length}"),
                 Wrap(
                   textDirection: TextDirection.ltr,
-                  children: state.availableTags.values.map((tag) {
+                  children: _.availableTags.values.map((tag) {
                     return Text(tag.id);
                   }).toList(),
                 ),
@@ -28,7 +28,7 @@ class TagsWidget extends StatelessWidget {
                   child: ElevatedButton(
                     child: Text("Increement"),
                     onPressed: () {
-                      state.increement();
+                      _.increement();
                     },
                   ),
                 ),
