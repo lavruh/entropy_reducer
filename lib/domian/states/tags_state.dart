@@ -12,12 +12,13 @@ class TagsState extends GetxController {
   getAvailableTags() {
     availableTags.addAll(repo.getAllTags());
     tagsLen.value = availableTags.length;
+    update();
   }
 
   increement() {
     tagsLen.value++;
     print(tagsLen.value);
-      update();
+    update();
   }
 
   filterTags(List filter) {}
@@ -31,7 +32,7 @@ class TagsState extends GetxController {
     if (null != existing) {
       availableTags[existing.id] = t;
     }
-      update();
+    update();
   }
 
   removeTag(Tag t) {}
