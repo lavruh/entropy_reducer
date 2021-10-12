@@ -16,7 +16,9 @@ class TagsState extends GetxController {
   }
 
   increement() {
-    tagsLen.value++;
+    Tag t = Tag(name: "new");
+    availableTags.value.putIfAbsent(t.id, () => t);
+    tagsLen.value = availableTags.value.length;
     print(tagsLen.value);
     update();
   }
