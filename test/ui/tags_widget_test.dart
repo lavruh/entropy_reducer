@@ -13,12 +13,14 @@ void main() {
 
   testWidgets('tags widget create test', (WidgetTester tester) async {
     TagsRepository repo = Get.put<TagsRepoMock>(TagsRepoMock());
+
+    TagsWidget w = TagsWidget();
+
     TagsState state = Get.put<TagsState>(TagsState(repo));
     Tag t = repo.getAllTags().values.last;
 
     state.getAvailableTags();
     expect(state.availableTags, isNotEmpty);
-    TagsWidget w = TagsWidget();
     await tester.pumpWidget(testableWidget(child: w));
     await tester.pump();
     expect(find.textContaining("Content"), findsOneWidget);
