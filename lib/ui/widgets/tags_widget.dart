@@ -14,7 +14,7 @@ class TagsWidget extends StatelessWidget {
             Wrap(
               textDirection: TextDirection.ltr,
               children: state.availableTags.values.map((tag) {
-                return Text(tag.id);
+                return Text("tag ${tag.id}");
               }).toList(),
             ),
             Padding(
