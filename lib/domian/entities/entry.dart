@@ -21,6 +21,7 @@ class Entry {
     _date = date ?? DateTime.now();
   }
 
+  @override
   update({String? newText, DateTime? newDate}) {
     if (newText != null) text = newText;
     if (newDate != null) _date = newDate;
@@ -35,4 +36,9 @@ class Entry {
   }
 
   Set<String> get tagIds => _tagsIds;
+
+  @override
+  String toString() {
+    return "id: $_id, date: $_date, name: $text";
+  }
 }

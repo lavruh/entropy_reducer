@@ -1,5 +1,6 @@
 import 'package:entropy_reducer/data/repos/entries_repo.dart';
 import 'package:entropy_reducer/domian/entities/entry.dart';
+import 'package:entropy_reducer/domian/entities/info_entry.dart';
 import 'package:entropy_reducer/domian/entities/task_entry.dart';
 import 'package:entropy_reducer/domian/entities/value_entry.dart';
 
@@ -13,10 +14,11 @@ class EntriesRepoMock implements EntriesRepository {
   }
 
   EntriesRepoMock() {
-    for (int i = 0; i < 10; i++) {
+    _entries.add(InfoEntry(text: "text", description: "descript"));
+    for (int i = 1; i < 10; i++) {
       Entry e = i % 2 == 0
           ? TaskEntry(text: "text_$i")
-          : ValueEntry(text: "text_$i", value: i);
+          : ValueEntry(text: "text_$i", value: i, unit: "mm");
       _entries.add(e);
     }
   }
