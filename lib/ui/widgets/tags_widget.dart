@@ -12,7 +12,8 @@ class TagsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     state.getAvailableTags();
-    Widget? content = GetBuilder<TagsState>(
+    Widget? content = GetX<TagsState>(
+init: Get.find<TagsState>(),
         builder: (state) => Wrap(
               textDirection: TextDirection.ltr,
               children: state.availableTags.values.map((tag) {

@@ -19,7 +19,7 @@ void main() {
 
     state.getAvailableTags();
 
-    await tester.pumpWidget(TagsWidget());
+    await tester.pumpWidget(testableWidget(child: TagsWidget()));
 
     expect(find.text(t.id), findsOneWidget);
 
@@ -29,4 +29,13 @@ void main() {
     // expect(find.text('0'), findsNothing);
     // expect(find.text('1'), findsOneWidget);
   });
+}
+
+Widget testableWidget({required Widget child}) {
+  return MediaQuery(
+    data: MediaQueryData(),
+    child: GetMaterialApp(
+      home: Scaffold(body: child),
+    ),
+  );
 }
