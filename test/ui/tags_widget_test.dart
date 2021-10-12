@@ -9,14 +9,14 @@ import 'package:get/get.dart';
 import 'package:entropy_reducer/di.dart';
 
 void main() {
-  di();
+  // di();
 
   testWidgets('tags widget create test', (WidgetTester tester) async {
     TagsRepository repo = Get.put<TagsRepoMock>(TagsRepoMock());
 
     TagsWidget w = TagsWidget();
 
-    TagsState state = Get.put<TagsState>(TagsState(repo));
+    TagsState state = Get.find();
     Tag t = repo.getAllTags().values.last;
 
     state.getAvailableTags();
