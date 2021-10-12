@@ -10,8 +10,8 @@ class TagsState extends GetxController {
   TagsState(this.repo);
 
   getAvailableTags() {
-    availableTags.addAll(repo.getAllTags());
-    tagsLen.value = availableTags.length;
+    availableTags.value.addAll(repo.getAllTags());
+    tagsLen.value = availableTags.value.length;
     update();
   }
 
