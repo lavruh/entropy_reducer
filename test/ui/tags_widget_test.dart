@@ -24,6 +24,7 @@ void main() {
     await tester.pump();
     expect(find.textContaining("Content"), findsOneWidget);
     expect(find.textContaining(t.id), findsOneWidget);
+    expect(find.textContaining("tag"), findsNWidgets(state.tagsLen.value));
 
     // await tester.tap(find.byIcon(Icons.add));
     // await tester.pump();
