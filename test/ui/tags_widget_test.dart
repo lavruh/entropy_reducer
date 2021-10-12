@@ -6,7 +6,6 @@ import 'package:entropy_reducer/domian/entities/tag.dart';
 import 'package:entropy_reducer/domian/states/tags_state.dart';
 import 'package:entropy_reducer/ui/widgets/tags_widget.dart';
 import 'package:get/get.dart';
-import 'package:entropy_reducer/main.dart';
 import 'package:entropy_reducer/di.dart';
 
 void main() {
@@ -18,8 +17,9 @@ void main() {
     Tag t = repo.getAllTags().values.last;
 
     state.getAvailableTags();
-
-    await tester.pumpWidget(testableWidget(child: TagsWidget()));
+    expect(state.availableTags, isNotEmpty);
+    TagsWidget w = TagsWidget();
+    await tester.pumpWidget(testableWidget(child: w));
 
     expect(find.text(t.id), findsOneWidget);
 
