@@ -3,16 +3,11 @@ import 'package:entropy_reducer/domian/states/tags_state.dart';
 import 'package:get/get.dart';
 
 class TagsWidget extends StatelessWidget {
-//  late final TagsState state;
-  // = Get.put<TagsState>(
-  //   TagsState(Get.find()),
-  // );
-
-  // TagsWidget(this.state);
+  final TagsState state = Get.find();
 
   @override
   Widget build(BuildContext context) {
-    // state.getAvailableTags();
+    state.getAvailableTags();
     return GetX<TagsState>(
         builder: (_) => Column(
               children: [

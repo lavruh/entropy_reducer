@@ -16,7 +16,6 @@ void main() {
     TagsState state = Get.put<TagsState>(TagsState(Get.find()));
     TagsWidget w = TagsWidget();
 
-    // TagsState state = Get.find();
     Tag t = repo.getAllTags().values.last;
 
     state.getAvailableTags();
