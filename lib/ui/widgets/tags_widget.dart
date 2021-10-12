@@ -23,11 +23,14 @@ class TagsWidget extends StatelessWidget {
                     return Text(tag.id);
                   }).toList(),
                 ),
-                ElevatedButton(
-                  child: Text("Increement"),
-                  onPressed: () {
-                    state.increement();
-                  },
+                Padding(
+                  padding: const EdgeInsets.all(18.0),
+                  child: ElevatedButton(
+                    child: Text("Increement"),
+                    onPressed: () {
+                      state.increement();
+                    },
+                  ),
                 ),
               ],
             ));
