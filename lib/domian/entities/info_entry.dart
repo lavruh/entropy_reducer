@@ -16,4 +16,9 @@ class InfoEntry extends Entry {
         ) {
     descr = description ?? "";
   }
+
+  @override
+  String toString() {
+    return "${super.toString()} Description: $descr";
+  }
 }

@@ -1,7 +1,7 @@
 import 'package:entropy_reducer/domian/entities/info_entry.dart';
 
 class TaskEntry extends InfoEntry {
-  late bool _done;
+  late bool done;
   late DateTime _created;
   List<TaskEntry> subTasks = [];
 
@@ -10,7 +10,7 @@ class TaskEntry extends InfoEntry {
     required String text,
     DateTime? date,
     String? description,
-    bool? done,
+    bool? d,
     DateTime? created,
   }) : super(
           id: id,
@@ -18,12 +18,16 @@ class TaskEntry extends InfoEntry {
           date: date,
           description: description,
         ) {
-    _done = done ?? false;
+    done = d ?? false;
     _created = (created ?? date) ?? DateTime.now();
   }
 
-  bool get done => _done;
-  set done(bool val) => _done = val;
+  setDone(bool val) => done = val;
 
   DateTime get created => _created;
+
+  @override
+  String toString() {
+    return "${super.toString()} Done: $done, Created: $_created";
+  }
 }
