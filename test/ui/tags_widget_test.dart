@@ -22,12 +22,14 @@ void main() {
     expect(state.availableTags, isNotEmpty);
     await tester.pumpWidget(testableWidget(child: w));
     await tester.pump();
+    int l = state.tagsLen.value;
     expect(find.textContaining("Content"), findsOneWidget);
     expect(find.textContaining(t.id), findsOneWidget);
-    expect(find.textContaining("tag"), findsNWidgets(state.tagsLen.value));
+    expect(find.textContaining("tag"), findsNWidgets(l));
 
-    // await tester.tap(find.byIcon(Icons.add));
-    // await tester.pump();
+    await tester.tap(find.text("Increement"));
+    await tester.pump();
+    expect(find.textContaining("tag"), findsNWidgets(l + 1));
 
     // expect(find.text('0'), findsNothing);
     // expect(find.text('1'), findsOneWidget);
