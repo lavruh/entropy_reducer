@@ -13,10 +13,10 @@ void main() {
 
   testWidgets('tags widget create test', (WidgetTester tester) async {
     TagsRepository repo = Get.put<TagsRepository>(TagsRepoMock());
-
+    TagsState state = Get.put<TagsState>(TagsState(Get.find()));
     TagsWidget w = TagsWidget();
 
-    TagsState state = Get.find();
+    // TagsState state = Get.find();
     Tag t = repo.getAllTags().values.last;
 
     state.getAvailableTags();
