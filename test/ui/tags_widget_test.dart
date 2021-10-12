@@ -12,7 +12,7 @@ void main() {
   // di();
 
   testWidgets('tags widget create test', (WidgetTester tester) async {
-    TagsRepository repo = Get.put<TagsRepoMock>(TagsRepoMock());
+    TagsRepository repo = Get.put<TagsRepository>(TagsRepoMock());
 
     TagsWidget w = TagsWidget();
 
