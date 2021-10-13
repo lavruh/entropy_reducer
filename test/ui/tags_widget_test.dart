@@ -31,7 +31,9 @@ void main() {
     await tester.pump();
     expect(find.textContaining(nt.name), findsOneWidget);
     // check color
-    expect(find.ancestor(of: find.text(nt.name), matching: find.byType(ActionChip)), findsOneWidget);
+    Finder f = find.ancestor(of: find.text(nt.name), matching: find.byType(ActionChip));
+    expect(f, findsOneWidget);
+    expect(tester.widget<ActionChip>(f).backgroundColor, Color(nt.color));
     // expect(tester.widget(find.textContaining(nt.name)), isA<Text>().having((t) => t.text, 'text', nt.name));
   });
 }
