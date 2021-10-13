@@ -33,6 +33,7 @@ void main() {
   });
 
   testWidgets('tags widget add', (WidgetTester tester) async {
+    await tester.pumpWidget(testableWidget(child: w));
     Tag nt = Tag(name: "newTag", color: Colors.black.value);
     state.addOrUpdateTag(nt);
 
