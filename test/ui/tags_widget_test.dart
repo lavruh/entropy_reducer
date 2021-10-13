@@ -23,16 +23,15 @@ void main() {
     await tester.pumpWidget(testableWidget(child: w));
     await tester.pump();
     int l = state.tagsLen.value;
-    expect(find.textContaining("Content"), findsOneWidget);
-    expect(find.textContaining(t.id), findsOneWidget);
-    expect(find.textContaining("tag"), findsNWidgets(l));
+    expect(find.textContaining(t.name), findsOneWidget);
+    expect(find.byType(ActionChip), findsNWidgets(l));
+    Tag nt = Tag(name: "newTag", color: Colors.black.value);
+    state.addOrUpdateTag(nt);
 
-    await tester.tap(find.text("Increement"));
     await tester.pump();
-    expect(find.textContaining("tag"), findsNWidgets(l + 1));
-
-    // expect(find.text('0'), findsNothing);
-    // expect(find.text('1'), findsOneWidget);
+    expect(find.textContaining(nt.name), findsOneWidget);
+    // check color
+    // expect(find.textContaining(nt.name).first., findsOneWidget);
   });
 }
 

@@ -8,26 +8,23 @@ class TagsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     state.getAvailableTags();
-    return Obx(() => Column(
-          children: [
-            Text("Content ${state.availableTags.length}"),
-            Wrap(
+    return GetBuilder<TagsState>(
+        builder: (_) => Transform(
+            transform: Matrix4.identity()..scale(0.6),
+            child: Wrap(
+              spacing: 5.0,
+              runSpacing: 5.0,
               textDirection: TextDirection.ltr,
               children: state.availableTags.values.map((tag) {
-                return Text("tag ${tag.id}");
+                return ActionChip(
+                  label: Text(
+                    tag.name,
+                    style: Theme.of(context).textTheme.headline6,
+                  ),
+                  backgroundColor: Color(tag.color),
+                  onPressed: () {},
+                );
               }).toList(),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: ElevatedButton(
-                child: Text("Increement"),
-                onPressed: () {
-                  state.increement();
-                  state.update();
-                },
-              ),
-            ),
-          ],
-        ));
+            )));
   }
 }

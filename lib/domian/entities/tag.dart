@@ -40,4 +40,9 @@ class Tag {
       color: map["color"].toInt,
     );
   }
+
+  @override
+  String toString() {
+    return "id[$id] Name: $name";
+  }
 }
