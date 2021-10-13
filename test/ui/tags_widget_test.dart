@@ -10,12 +10,17 @@ import 'package:entropy_reducer/di.dart';
 
 void main() {
   // di();
+  late TagsRepository repo;
+  late TagsState state;
+  late TagsWidget w;
+
+  setUp(() {
+    repo = Get.put<TagsRepository>(TagsRepoMock());
+    state = Get.put<TagsState>(TagsState(Get.find()));
+    w = TagsWidget();
+  });
 
   testWidgets('tags widget create test', (WidgetTester tester) async {
-    TagsRepository repo = Get.put<TagsRepository>(TagsRepoMock());
-    TagsState state = Get.put<TagsState>(TagsState(Get.find()));
-    TagsWidget w = TagsWidget();
-
     Tag t = repo.getAllTags().values.last;
 
     state.getAvailableTags();
@@ -25,6 +30,9 @@ void main() {
     int l = state.tagsLen.value;
     expect(find.textContaining(t.name), findsOneWidget);
     expect(find.byType(ActionChip), findsNWidgets(l));
+  });
+
+  testWidgets('tags widget add', (WidgetTester tester) async {
     Tag nt = Tag(name: "newTag", color: Colors.black.value);
     state.addOrUpdateTag(nt);
 
