@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 class TagsWidget extends StatelessWidget {
   final TagsState state = Get.find();
+  Function? selectCallback;
 
   @override
   Widget build(BuildContext context) {
